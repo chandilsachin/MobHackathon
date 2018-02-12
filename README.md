@@ -20,4 +20,8 @@ Please ensure the code is **PRODUCTION READY**
 
 All the very best!!!
 
+**Please ensure to commit code in frequent intervals**
+
+**Only the last commit before or at the end of 5 hours will be considered for evalaution** 
+
 # You have 5 hours to finish ? Are you Ready ? 
