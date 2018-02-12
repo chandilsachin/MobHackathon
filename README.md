@@ -1,6 +1,6 @@
 # MobHackathon
 
-**First FORK the repository and then start reading the README and submit your forked git URL in the Google Form and submit**
+**First FORK the repository and submit your forked git URL in the Google Form and submit**
 
 ```
 Given AirAsia Flight booking details for a customer, 
