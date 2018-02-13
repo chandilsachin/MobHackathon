@@ -1,7 +1,10 @@
 # AirAsia Booking
 
+This app is made in **Kotlin**.
+
 The idea is to have two tabs one for **Up Coming bookings** and one for **Completed bookings**. 
-And ongoing flight booking will be shown on top on tabs and Below Toolbar.
+And ongoing flight booking will be shown on top of tabs and Below Toolbar. 
+This will enable users to check their ongoing flights on home screen with all required details.
 
 
 ### Technical Architecture / Approach
@@ -17,16 +20,19 @@ There is are Two fragments:
 
 This solution lets user check their on going flight on the HomeScreen it self and still can check upComing / completed booking by just taping on tabs.
 At max single click is required to check the information user needs.
-A very simple and easy to use with simple UI.
+A very simple and easy to use UI.
 
 
 
-
-
-
-
-### This that i could not completed because of time constraints
+### Things i could not completed because of time constraints
 1. I wanted to add one more fragment to show all details of a particular booking on taping an item on list with
 all break down in segments (for more than one stops).
 1. I wanted to add a notification to alert user for upcoming flights.
 1. I wanted to add local database where all bookings can be saved, so that later retrieval could be faster.
+1. A simple message if upcoming or completed flights are not available.
+
+
+## Used Libraries
+1. Android Architecture Components
+1. RxJava2
+1. GSON
