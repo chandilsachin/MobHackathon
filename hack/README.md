@@ -22,4 +22,6 @@ All the very best!!!
 
 **Please ensure to commit code in frequent intervals**
 
+# Please add solution document briefly describing the idea, technical architecture, solution approach etc. and why this is the best solution.
+
 
