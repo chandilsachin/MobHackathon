@@ -25,7 +25,7 @@ A very simple and easy to use UI.
 
 
 
-### Things to do
+### To do
 1. Notification to alert user for upcoming flights.
 
 ## Used Libraries
