@@ -8,6 +8,7 @@ import android.support.v4.view.ViewPager
 import android.view.View
 import com.chandilsachin.airasiabooking.R
 import com.chandilsachin.airasiabooking.util.lifecycle.arch.LifeCycleFragment
+import com.chandilsachin.notely.util.getAppCompactActivity
 import kotlinx.android.synthetic.main.fragment_bookings.*
 import kotlinx.android.synthetic.main.toolbar_layout.*
 
@@ -25,7 +26,7 @@ class BookingsFragment : LifeCycleFragment() {
     override fun init(v: View?, savedInstanceState: Bundle?) {
         setUpToolbar(main_toolbar, R.string.booking)
         setUpTabs()
-        mFragmentPagerAdapter = BookingFragmentPagerAdapter(activity?.supportFragmentManager!!)
+        mFragmentPagerAdapter = BookingFragmentPagerAdapter(childFragmentManager)
     }
 
     override fun initLoadViews() {

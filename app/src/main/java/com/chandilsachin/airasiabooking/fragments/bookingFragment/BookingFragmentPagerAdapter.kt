@@ -24,5 +24,7 @@ class BookingFragmentPagerAdapter(fragmentManager: FragmentManager): FragmentPag
         return BookingListFragment.newInstance(BookingListFragment.MODE_UPCOMING)
     }
 
+
+
     override fun getCount(): Int = PAGES
 }

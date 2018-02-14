@@ -6,8 +6,10 @@ import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
 import android.view.View
 import com.chandilsachin.airasiabooking.R
+import com.chandilsachin.airasiabooking.fragments.bookingDetailsFragment.BookingDetailsFragment
 import com.chandilsachin.airasiabooking.util.lifecycle.arch.LifeCycleFragment
 import com.chandilsachin.notely.util.initViewModel
+import com.chandilsachin.notely.util.loadFragmentSlideUp
 import kotlinx.android.synthetic.main.fragment_booking_list.*
 
 
@@ -32,12 +34,16 @@ class BookingListFragment : LifeCycleFragment() {
     }
 
     override fun initLoadViews() {
-
+        mViewModel.loadBookingList(context)
         if(mMode == MODE_UPCOMING) {
             mViewModel.upComingListLiveData.observe(this, Observer {
                 it?.let {
                     listAdapter.listItems = it
                     listAdapter.notifyDataSetChanged()
+                    if(it.isEmpty())
+                        textViewEmptyBooking.visibility = View.VISIBLE
+                    else
+                        textViewEmptyBooking.visibility = View.GONE
                 }
             })
         }else{
@@ -45,11 +51,20 @@ class BookingListFragment : LifeCycleFragment() {
                 it?.let {
                     listAdapter.listItems = it
                     listAdapter.notifyDataSetChanged()
+                    if(it.isEmpty())
+                        textViewEmptyBooking.visibility = View.VISIBLE
+                    else
+                        textViewEmptyBooking.visibility = View.GONE
                 }
             })
         }
+    }
 
-        mViewModel.loadBookingList(context)
+    override fun setUpEvents() {
+        listAdapter.onBookingClickListener = {
+            loadFragmentSlideUp(R.id.frameFragmentContainer,
+                    BookingDetailsFragment.newInstance(it), BookingDetailsFragment.TAG)
+        }
     }
 
     companion object {

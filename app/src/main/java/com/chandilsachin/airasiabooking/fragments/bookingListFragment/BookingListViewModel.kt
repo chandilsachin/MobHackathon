@@ -31,8 +31,6 @@ class BookingListViewModel : ViewModel() {
             val gson = Gson()
             val token = object : TypeToken<ArrayList<BookingData>>() {}
             val data = gson.fromJson<List<BookingData>>(reader, token.type)
-            //val list = mutableListOf<BookingData>()
-            //list.add(data)
             it.onSuccess(data)
         }.flatMapObservable { Observable.fromIterable(it) }
                 .subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread())
@@ -52,6 +50,8 @@ class BookingListViewModel : ViewModel() {
                 else{
                     completedList.add(item)
                 }
+                if(item.pNR != null)
+                    bookingDataMap.put(item.pNR, item)
             }
         }
         upComingListLiveData.value = upComingList
@@ -59,6 +59,7 @@ class BookingListViewModel : ViewModel() {
     }
 
     companion object {
+        val bookingDataMap = hashMapOf<String, BookingData>()
         @SuppressLint("SimpleDateFormat")
         fun convertDate(timestamp: String?): Date {
             return SimpleDateFormat("yyyy-MM-dd hh:mm:ss").parse(timestamp?.replace("T", " "))

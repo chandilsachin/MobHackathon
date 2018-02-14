@@ -1,0 +1,161 @@
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
+
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/colorPrimary">
+
+        <include layout="@layout/toolbar_layout" />
+
+    </android.support.design.widget.AppBarLayout>
+
+
+    <android.support.v4.widget.NestedScrollView
+        android:id="@+id/scrollViewBookingDetails"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/tvStatus"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="18sp"
+                android:visibility="gone"
+                android:background="#FFFFFF"
+                android:gravity="center"
+                android:textStyle="bold"
+                android:padding="10dp"/>
+
+            <TextView
+                android:id="@+id/textViewPNR"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="PNR"
+                android:padding="8dp"
+                android:textStyle="bold"/>
+
+            <android.support.v7.widget.CardView
+                android:layout_width="match_parent"
+                app:cardUseCompatPadding="true"
+                android:layout_height="wrap_content">
+
+                <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:padding="8dp">
+
+
+                    <TextView
+                        android:id="@+id/tvDate"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:textStyle="bold"
+                        android:textSize="22sp"
+                        android:text="Date"
+                        android:layout_alignParentTop="true" />
+
+                    <TextView
+                        android:id="@+id/tvFromTo"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:layout_below="@id/tvDate"
+                        android:textStyle="bold"
+                        android:textSize="18sp"
+                        android:text="FromTo"
+                        android:layout_marginTop="10dp" />
+
+                    <TextView
+                        android:id="@+id/tvName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:layout_below="@id/tvFromTo"
+                        android:text="Name"
+                        android:textSize="17sp"
+                        android:visibility="gone"
+                        android:layout_marginTop="5dp" />
+
+                    <TextView
+                        android:id="@+id/tvTime"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_toEndOf="@id/tvFromTo"
+                        android:text="Time"
+                        android:layout_alignBaseline="@id/tvDate"
+                        android:textStyle="bold"
+                        android:textSize="15sp"
+                        android:layout_alignParentTop="true"/>
+
+                    <TextView
+                        android:id="@+id/tvDuration"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginTop="5dp"
+                        android:text="Dutation"
+                        android:visibility="gone"
+                        android:layout_below="@id/tvTime"/>
+
+                    <TextView
+                        android:id="@+id/tvNoOfStops"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:text="Stops"
+                        android:layout_alignBaseline="@id/tvFromTo"
+                        android:layout_below="@id/tvDuration"/>
+
+                </RelativeLayout>
+
+            </android.support.v7.widget.CardView>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:text="Passenger(s): "/>
+
+            <android.support.v7.widget.CardView
+                android:id="@+id/cardViewPassengers"
+                android:layout_width="match_parent"
+                app:cardUseCompatPadding="true"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:id="@+id/linearPassengersContainer"
+                    android:layout_width="match_parent"
+                    android:orientation="vertical"
+                    android:layout_height="wrap_content"/>
+
+            </android.support.v7.widget.CardView>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:text="@string/flights_s"/>
+
+            <LinearLayout
+                android:id="@+id/linearFlightsContainer"
+                android:layout_width="match_parent"
+                android:orientation="vertical"
+                android:layout_height="wrap_content"/>
+
+        </LinearLayout>
+
+    </android.support.v4.widget.NestedScrollView>
+
+</android.support.design.widget.CoordinatorLayout>

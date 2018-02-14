@@ -16,7 +16,7 @@ import kotlinx.android.synthetic.main.list_item_booking_list.view.*
 class BookingListAdapter (val context: Context?, var listItems: List<BookingData>): RecyclerView.Adapter<BookingListAdapter.ViewHolder>(){
 
     val layoutInflater = LayoutInflater.from(context)
-
+    var onBookingClickListener: (pnr: String?) -> Unit = {}
 
     override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): ViewHolder {
         return ViewHolder(context, layoutInflater.inflate(R.layout.list_item_booking_list, parent, false))
@@ -26,6 +26,9 @@ class BookingListAdapter (val context: Context?, var listItems: List<BookingData
 
     override fun onBindViewHolder(holder: ViewHolder?, position: Int) {
         holder?.bind(listItems[position])
+        holder?.itemView?.setOnClickListener {
+            onBookingClickListener(listItems[position].pNR)
+        }
     }
 
 
@@ -34,7 +37,7 @@ class BookingListAdapter (val context: Context?, var listItems: List<BookingData
             bookingData.journeyServices?.segments?.let {
                 itemView.tvDate.text = DateUtils.formatDateTime(context,
                         BookingListViewModel.convertDate(it[0].arrivalTime).time, DateUtils.FORMAT_SHOW_DATE)
-                itemView.tvFromTo.text = "${it[0].departureStation} - ${it[0].arrivalStation}"
+                itemView.tvFromTo.text = "${it[0].departureStation} - ${it[it.size-1].arrivalStation}"
                 itemView.tvTime.text = DateUtils.formatDateTime(context,
                         BookingListViewModel.convertDate(it[0].departureTime).time, DateUtils.FORMAT_SHOW_TIME)
                 itemView.tvDuration.text = " "
