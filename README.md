@@ -32,3 +32,16 @@ A very simple and easy to use UI.
 1. Android Architecture Components
 1. RxJava2
 1. GSON
+
+## Screenshots
+
+<img height="450px" src="screenshots/screen1.png" />
+
+
+<img height="450px" src="screenshots/screen1_land.png" />
+
+
+<img height="450px" src="screenshots/screen2.png" />
+
+
+<img height="450px" src="screenshots/screen2_land.png" />
